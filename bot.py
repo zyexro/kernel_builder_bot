@@ -47,10 +47,10 @@ DEFAULT_VALUES = {
     'KBRANCH': 'yoka',
     'NOTES': '',
     'SUFFIX': '',
-    'ZREPO': '',
-    'ZBRANCH': '',
+    'ZREPO': 'https://github.com/AnyKernel3.git',
+    'ZBRANCH': 'master',
     'KSU': '',
-    'TG_RECIPIENT': '',
+    'TG_RECIPIENT': '-1002266980046',
     'CONTAINER': 'fedora:40'
 }
 
