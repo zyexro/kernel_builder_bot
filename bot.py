@@ -47,10 +47,10 @@ DEFAULT_VALUES = {
     'KBRANCH': 'yoka',
     'NOTES': '',
     'SUFFIX': '',
-    'ZREPO': 'https://github.com/AnyKernel3.git',
-    'ZBRANCH': 'master',
+    'ZREPO': '',
+    'ZBRANCH': '',
     'KSU': '',
-    'TG_RECIPIENT': '-1002266980046',
+    'TG_RECIPIENT': '',
     'CONTAINER': 'fedora:40'
 }
 
@@ -229,24 +229,24 @@ class KernelBuilderBot:
             success, message = await self.trigger_github_workflow(context.user_data['build_config'])
             
             if success:
-                await query.edit_message_text(
+                await query.message.reply_text(
                     f"🚀 *Build Started Successfully!*\n\n{message}",
-                    parse_mode='Markdown'
+                    parse_mode="Markdown"
                 )
                 # Store build info for status tracking
-                user_id = context.user_data['build_config']['user_id']
+                user_id = context.user_data["build_config"]["user_id"]
                 self.active_builds[user_id] = {
-                    'config': context.user_data['build_config'],
-                    'started_at': datetime.now(),
-                    'status': 'running'
+                    "config": context.user_data["build_config"],
+                    "started_at": datetime.now(),
+                    "status": "running",
                 }
             else:
-                await query.edit_message_text(
+                await query.message.reply_text(
                     f"❌ *Build Failed to Start*\n\n{message}",
-                    parse_mode='Markdown'
+                    parse_mode="Markdown"
                 )
         else:
-            await query.edit_message_text("❌ Build cancelled.")
+            await query.message.reply_text("❌ Build cancelled.")
         
         return ConversationHandler.END
     
