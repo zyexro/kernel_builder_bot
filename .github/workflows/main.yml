@@ -26,7 +26,7 @@ jobs:
         chmod +x *
         ./deploy.sh install
 
-    - name: create env filw
+    - name: Create env
       run: |
         rm .env*
         cat  <<EOF > .env
@@ -38,5 +38,5 @@ jobs:
         GITHUB_WORKFLOW=main.yml
         EOF
 
-    - name: run bot
+    - name: Run bot
        run: ./deploy.sh start
