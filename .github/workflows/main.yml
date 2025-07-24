@@ -37,6 +37,6 @@ jobs:
         GITHUB_REPO=kernel_builder
         GITHUB_WORKFLOW=main.yml
         EOF
+
     - name: run bot
-       run: |
-        ./deploy.sh start
+       run: ./deploy.sh start
